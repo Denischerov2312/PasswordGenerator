@@ -1,0 +1,7 @@
+# created by virtualenv automatically
+test.py
+test2.py
+test3.py
+/venv
+/__pycache__
+/.idea
