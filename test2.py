@@ -1,57 +1,54 @@
-import smtplib
+import random
+
+skills = [
+    "Стремительный прыжок",
+    "Электрический выстрел",
+    "Ледяной удар",
+    "Стремительный удар",
+    "Кислотный взгляд",
+    "Тайный побег",
+    "Ледяной выстрел",
+    "Огненный заряд"
+]
+runic_skills = []
+random_skills = random.sample(skills, 3)
+print(random_skills)
 
 
-def send():
-    from_addres = 'denischicherov@yandex.ru'
-    to_addres = 'kirillfedichkin667@gmail.com'
-    website = 'vk.com/babyjon_0'
-    friend_name = 'Артем'
-    sender_name = 'Денис'
-    titles = f"""From: {from_addres}
-    To: {to_addres}
-    Subject: Приглашение!
-    Content-Type: text/plain; charset="UTF-8";"""
+runic_alphabet = {
+    'а': 'а͠', 'б': 'б̋', 'в': 'в͒͠',
+    'г': 'г͒͠', 'д': 'д̋', 'е': 'е͠',
+    'ё': 'ё͒͠', 'ж': 'ж͒', 'з': 'з̋̋͠',
+    'и': 'и', 'й': 'й͒͠', 'к': 'к̋̋',
+    'л': 'л̋͠', 'м': 'м͒͠', 'н': 'н͒',
+    'о': 'о̋', 'п': 'п̋͠', 'р': 'р̋͠',
+    'с': 'с͒', 'т': 'т͒', 'у': 'у͒͠',
+    'ф': 'ф̋̋͠', 'х': 'х͒͠', 'ц': 'ц̋',
+    'ч': 'ч̋͠', 'ш': 'ш͒͠', 'щ': 'щ̋',
+    'ъ': 'ъ̋͠', 'ы': 'ы̋͠', 'ь': 'ь̋',
+    'э': 'э͒͠͠', 'ю': 'ю̋͠', 'я': 'я̋',
+    'А': 'А͠', 'Б': 'Б̋', 'В': 'В͒͠',
+    'Г': 'Г͒͠', 'Д': 'Д̋', 'Е': 'Е',
+    'Ё': 'Ё͒͠', 'Ж': 'Ж͒', 'З': 'З̋̋͠',
+    'И': 'И', 'Й': 'Й͒͠', 'К': 'К̋̋',
+    'Л': 'Л̋͠', 'М': 'М͒͠', 'Н': 'Н͒',
+    'О': 'О̋', 'П': 'П̋͠', 'Р': 'Р̋͠',
+    'С': 'С͒', 'Т': 'Т͒', 'У': 'У͒͠',
+    'Ф': 'Ф̋̋͠', 'Х': 'Х͒͠', 'Ц': 'Ц̋',
+    'Ч': 'Ч̋͠', 'Ш': 'Ш͒͠', 'Щ': 'Щ̋',
+    'Ъ': 'Ъ̋͠', 'Ы': 'Ы̋͠', 'Ь': 'Ь̋',
+    'Э': 'Э͒͠͠', 'Ю': 'Ю̋͠', 'Я': 'Я̋',
+    ' ': ' '
+}
 
-    pattern = """{0}
-    
-    Научим монтажу по ссылку за 3400 руб, %website%""".format(titles)
+for skill in random_skills:
+    for symbol in skill:
+        symbol = symbol + 'a'
+    runic_skills.append(skill)
 
-    letter = pattern.replace('%friend_name%', friend_name).replace('%my_name%', sender_name).replace('%website%', website)
-
-    login = 'denischicherov'
-    password = 'Wsx54321'
-
-    letter = letter.encode('UTF-8')
-    server = smtplib.SMTP_SSL('smtp.yandex.ru:465')
-    server.login(login, password)
-    server.sendmail(from_addres, to_addres, letter)
-    server.quit()
+print(runic_skills)
 
 
-for i in range(15):
-    from_addres = 'denischicherov@yandex.ru'
-    to_addres = 'kirillfedichkin667@gmail.com'
-    website = 'vk.com/babyjon_0'
-    friend_name = 'Артем'
-    sender_name = 'Денис'
-    titles = f"""From: {from_addres}
-    To: {to_addres}
-    Subject: Приглашение!
-    Content-Type: text/plain; charset="UTF-8";"""
 
-    pattern = """{0}
 
-    Научим монтажу по ссылку за 3400 руб, %website%""".format(titles)
-
-    letter = pattern.replace('%friend_name%', friend_name).replace('%my_name%', sender_name).replace('%website%',
-                                                                                                     website)
-
-    login = 'denischicherov'
-    password = 'Wsx54321'
-
-    letter = letter.encode('UTF-8')
-    server = smtplib.SMTP_SSL('smtp.yandex.ru:465')
-    server.login(login, password)
-    server.sendmail(from_addres, to_addres, letter)
-    server.quit()
 
